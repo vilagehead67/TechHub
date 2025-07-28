@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="margin: 8px;">
+  <h2 style="text-align: left;">User Profile</h2>
+
+  <div class="profile-section">
+    {% if user.profile_pic %}
+      <img src="{{ url_for('static', filename='uploads/' ~ user.profile_pic) }}" alt="Profile Picture" class="profile-pic">
+    {% else %}
+      <img src="{{ url_for('static', filename='uploads/default.jpg') }}" alt="Default Picture" class="profile-pic">
+    {% endif %} <br>
+
+    <!-- Upload Picture Form -->
+    <form id="uploadPictureForm" action="{{ url_for('upload_profile_picture') }}" method="POST" enctype="multipart/form-data" class="mt-3">
+      <input 
+        type="file" 
+        name="profile_pic" 
+        id="profilePicInput" 
+        accept="image/*" 
+        style="display: none;" 
+        onchange="document.getElementById('uploadPictureForm').submit()"
+      >
+      <label for="profilePicInput" class="upload">Upload New Picture</label>
+    </form>
+  </div>
+
+  <!-- User Info -->
+  <ul class="mt-4">
+    <li><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</li>
+    <li><strong>Email:</strong> {{ user.email }}</li>
+    <li><strong>Role:</strong> {{ user.role|capitalize }}</li>
+  </ul>
+
+  <!-- Logout Form -->
+  <div style="overflow: hidden; margin-top: 10px;">
+  <form action="{{ url_for('auth.logout') }}" method="GET" style="float: left; margin-right: 10px;">
+    <button type="submit" 
+            style="background-color: #dc3545; color: white; font-size: 14px; padding: 6px 14px; border: none; border-radius: 5px; width: 100px;">
+      Logout
+    </button>
+  </form>
+</div>
+  <br>
+
+  <!-- Navigation Links -->
+  {% if session.get('user_role') == 'instructor' %}
+    <a href="{{ url_for('instructor_dashboard') }}">Back to Dashboard</a>
+  {% else %}
+    <a href="{{ url_for('student_dashboard') }}">Back to Dashboard</a>
+  {% endif %}
+  <br><br>
+
+  <a href="{{ url_for('edit_profile') }}">Edit Profile</a>
+</div>
+
+{% endblock %}

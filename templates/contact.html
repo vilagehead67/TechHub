@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h1>Contact Us</h1>
+
+  <div class="founder-box">
+    <img src="{{ url_for('static', filename='images/founder.jpg') }}" alt="Founder" class="founder-img">
+    <div>
+      <h3>Francis Wisdom</h3>
+      <p>Founder & Lead Instructor, LearnHub</p>
+      <p>Email: founder@learnhub.com</p>
+    </div>
+  </div>
+
+  <hr>
+ <br>
+  <h2 style="text-align: center;">Send Us a Message</h2>
+  <form method="POST" action="/contact">
+    <input type="text" name="name" placeholder="Your Name" required><br><br>
+    <input type="email" name="email" placeholder="Your Email" required><br><br>
+    <textarea name="message" placeholder="Your Questions or Feedback..." required></textarea><br><br>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+{% endblock %} <br>

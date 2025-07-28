@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Courses{% endblock %}
+{% block content %}
+<section class="courses">
+    <h2>Available Courses</h2>
+    <div class="course-grid">
+        {% for course in courses %}
+        <div class="course-card">
+            <img src="{{ url_for('static', filename='images/' + course.image) }}" alt="{{ course.title }}">
+            <h3>{{ course.title }}</h3>
+            <p><strong>Description:</strong> {{ course.description }}</p>
+            <p><strong>Instructor:</strong> {{ course.instructor_name }}</p>
+
+            {% if session.get('user_role') == 'student' %}
+            <div class="course-actions">
+                {% if course._id in enrolled_course_ids %}
+                    <p>You are already enrolled.</p>
+                {% else %}
+                    <form method="POST" action="{{ url_for('course_routes.enroll', slug=course.slug) }}">
+                        <button type="submit" class="btn">Enroll</button>
+                    </form>
+                {% endif %}
+                <a href="{{ url_for('course_routes.my_courses', slug=course.slug) }}" class="btn">View Course</a>
+            </div>
+            {% endif %}
+
+            {% if session.get('user_role') == 'instructor' %}
+            <div class="course-actions">
+                <a href="{{ url_for('course_routes.enrolled_students', course_id=course._id) }}" class="btn">View Enrolled Students</a>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

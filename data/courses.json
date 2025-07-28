@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "Python for Beginners",
+    "slug": "python-for-beginners",
+    "description": "Learn the basics of Python programming with hands-on examples and exercises.",
+    "image": "python.jpg",
+    "instructor": "Jane Doe",
+    "lessons": [
+      {
+        "title": "Introduction to Python",
+        "content": "Python is a beginner-friendly language.",
+        "video_url": "/static/videos/intro.mp4"
+      },
+      {
+        "title": "Variables and Data Types",
+        "content": "Learn how to declare variables and use data types.",
+        "video_url": "/static/videos/variables.mp4"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Web Development",
+    "slug": "web-development",
+    "description": "Master HTML, CSS, JavaScript and build beautiful responsive websites.",
+    "image": "webdev.jpeg",
+    "instructor": "John Smith"
+  },
+  {
+    "id": 3,
+    "title": "Intro to Data Science",
+    "slug": "intro-to-data-science",
+    "description": "Explore data analysis, visualization, and machine learning using Python libraries.",
+    "image": "datasci.jpg",
+    "instructor": "Alice Johnson"
+  },
+  {
+    "id": 4,
+    "title": "Cybersecurity Fundamentals",
+    "slug": "cybersecurity-fundamentals",
+    "description": "Understand basic security principles, threats, and how to protect systems.",
+    "image": "cybers.jpeg",
+    "instructor": "Michael Lee"
+  }
+]

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Home - E-Learning{% endblock %}
+{% block content %}
+
+<header class="hero">
+    <h1>Learn Anytime, Anywhere</h1>
+    <p>Access quality education from the comfort of your home</p>
+    {% if session.get('user_id') %}
+        <a href="{{ url_for('course_routes.courses') }}" class="btn">Browse Courses</a>
+    {% else %}
+        <a href="{{ url_for('auth.login', next=url_for('course_routes.courses')) }}" class="btn">Browse Courses</a>
+    {% endif %}
+</header>
+
+<section class="featured-courses">
+    <h2>Featured Courses</h2>
+
+    <div class="course-card">
+        <h3>Python for Beginners</h3>
+        <p>Learn the basics of Python in 5 days.</p>
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('courses') }}" class="btn">View Course</a>
+        {% else %}
+            <a href="{{ url_for('auth.login', next=url_for('course_detail', slug='python-for-beginners')) }}" class="btn">View Course</a>
+        {% endif %}
+    </div>
+
+    <div class="course-card">
+        <h3>Web Development</h3>
+        <p>Build websites using HTML, CSS, and Flask.</p>
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('courses') }}" class="btn">View Course</a>
+        {% else %}
+            <a href="{{ url_for('auth.login', next=url_for('course_detail', slug='web-development')) }}" class="btn">View Course</a>
+        {% endif %}
+    </div>
+
+    <div class="course-card">
+        <h3>Machine Learning</h3>
+        <p>Understand the fundamentals of machine learning.</p>
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('courses') }}" class="btn">View Course</a>
+        {% else %}
+            <a href="{{ url_for('auth.login', next=url_for('course_detail', slug='machine-learning')) }}" class="btn">View Course</a>
+        {% endif %}
+    </div>
+
+    <div class="course-card">
+        <h3>Data Science Intro</h3>
+        <p>Explore data with pandas and matplotlib.</p>
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('courses') }}" class="btn">View Course</a>
+        {% else %}
+            <a href="{{ url_for('auth.login', next=url_for('course_detail', slug='intro-to-data-science')) }}" class="btn">View Course</a>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="instructor-dashboard">
+  <div class="dashboard-card">
+    <h2>Welcome, {{ session.user_name }} 👋</h2>
+    <p class="subtitle">You’re logged in as an <strong>Instructor</strong>.</p>
+    <a href="/courses" class="btn-dashboard">📚 Your Courses</a>
+  </div>
+</section>
+{% endblock %}

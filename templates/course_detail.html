@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{ course.title }} - Details{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto p-6 bg-white shadow rounded">
+    <h1 class="text-2xl font-bold mb-4">{{ course.title }}</h1>
+    <p class="text-gray-700 mb-4">{{ course.description }}</p>
+
+    {% if course.instructor %}
+        <p class="text-sm text-gray-500 mb-2">Instructor: {{ course.instructor }}</p>
+    {% endif %}
+
+    {% if is_enrolled %}
+        <p class="text-green-600 font-semibold mb-2">✅ You are enrolled in this course</p>
+        <a href="{{ url_for('course_routes.study', slug=course.slug) }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            Continue Studying
+        </a>
+    {% else %}
+        <form method="POST" action="{{ url_for('course_routes.enroll', slug=course.slug) }}">
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                Enroll Now
+            </button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

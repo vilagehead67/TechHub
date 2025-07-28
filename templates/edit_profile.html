@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="edit-profile-container">
+  <h2>Edit Profile</h2>
+  <form method="POST" class="edit-form">
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" value="{{ user.first_name }}" required>
+
+    <label for="last_name">Last Name</label>
+    <input type="text" name="last_name" value="{{ user.last_name }}" required>
+
+    <label for="email">Email</label>
+    <input type="email" name="email" value="{{ user.email }}" required>
+
+    <label for="password">New Password</label>
+    <input type="password" name="password" placeholder="Leave blank to keep current password">
+
+    <button type="submit" class="btn-update">Update Profile</button>
+  </form>
+
+  <div class="edit-links">
+    <a href="{{ url_for('profile') }}" class="back-link">Back to Profile</a>
+  </div>
+</div>
+{% endblock %}

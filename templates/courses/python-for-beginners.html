@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Python for Beginners{% endblock %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto py-10 px-6">
+    <h1 class="text-3xl font-bold mb-6">Python for Beginners</h1>
+
+    <p class="mb-8 text-gray-700">This beginner-friendly course will teach you the core principles of Python programming through real-world examples, video tutorials, and interactive quizzes.</p>
+
+    <div class="space-y-12">
+        <!-- Module 1 -->
+        <div class="border border-gray-300 rounded-lg p-6 shadow bg-white">
+            <h2 class="text-2xl font-semibold mb-3">📘 Module 1: Introduction to Python</h2>
+            <p class="text-gray-800 mb-3">Python is a powerful, beginner-friendly programming language known for its simplicity and readability. It is used in various domains such as web development, data science, machine learning, automation, and more.</p>
+            <p class="text-gray-800 mb-3">To get started, you need to install Python from the <a href="https://www.python.org/downloads/" target="_blank" class="text-blue-600 underline">official website</a>. You can write Python code using text editors like VS Code, or use beginner IDEs like Thonny or IDLE.</p>
+            <pre class="bg-gray-100 p-4 rounded mb-4 text-sm overflow-x-auto">
+# Your first Python program
+print("Hello, world!")
+            </pre>
+            <div class="mb-6">
+                <h3 class="text-lg font-medium">🎥 Video Tutorial:</h3>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-64 rounded" src="https://www.youtube.com/embed/_uQrJ0TkZlc" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <h3 class="text-lg font-medium mb-2">📝 Quiz 1:</h3>
+            <ol class="list-decimal ml-6 space-y-1">
+                <li>What is Python commonly used for?</li>
+                <li>Write a Python program that prints your name.</li>
+                <li>What do you understand by an IDE?</li>
+            </ol>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="border border-gray-300 rounded-lg p-6 shadow bg-white">
+            <h2 class="text-2xl font-semibold mb-3">📘 Module 2: Variables & Data Types</h2>
+            <p class="text-gray-800 mb-3">Variables are like containers for storing data values. In Python, you don’t need to declare the data type – Python figures it out for you.</p>
+            <pre class="bg-gray-100 p-4 rounded mb-4 text-sm overflow-x-auto">
+name = "Francis"
+age = 20
+height = 5.9
+is_student = True
+            </pre>
+            <p class="text-gray-800 mb-3">Python has the following built-in data types:</p>
+            <ul class="list-disc ml-6 text-gray-800 mt-2">
+                <li><strong>String</strong>: for text – <code>"hello"</code></li>
+                <li><strong>Integer</strong>: whole numbers – <code>23</code></li>
+                <li><strong>Float</strong>: decimal numbers – <code>3.14</code></li>
+                <li><strong>Boolean</strong>: <code>True</code> or <code>False</code></li>
+            </ul>
+            <div class="mb-6 mt-4">
+                <h3 class="text-lg font-medium">🎥 Video Tutorial:</h3>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-64 rounded" src="https://www.youtube.com/embed/kqtD5dpn9C8" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <h3 class="text-lg font-medium mb-2">📝 Quiz 2:</h3>
+            <ol class="list-decimal ml-6 space-y-1">
+                <li>What is a variable?</li>
+                <li>Create a variable called <code>course</code> and assign it the value "Python".</li>
+                <li>What type of data is <code>True</code> in Python?</li>
+            </ol>
+        </div>
+
+        {% for i in range(3, 11) %}
+        <!-- Module {{ i }} -->
+        <div class="border border-gray-300 rounded-lg p-6 shadow bg-white">
+            <h2 class="text-2xl font-semibold mb-3">📘 Module {{ i }}: Topic Title Placeholder</h2>
+            <p class="text-gray-800 mb-3">Detailed explanation for module {{ i }}. Introduce key concepts clearly and provide context with real-life examples.</p>
+            <pre class="bg-gray-100 p-4 rounded mb-4 text-sm overflow-x-auto">
+# Code sample for Module {{ i }}
+# (Replace this with real Python content)
+            </pre>
+            <div class="mb-6">
+                <h3 class="text-lg font-medium">🎥 Video Tutorial:</h3>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-64 rounded" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <h3 class="text-lg font-medium mb-2">📝 Quiz {{ i }}:</h3>
+            <ol class="list-decimal ml-6 space-y-1">
+                <li>Question 1 placeholder for Module {{ i }}</li>
+                <li>Question 2 placeholder for Module {{ i }}</li>
+                <li>Question 3 placeholder for Module {{ i }}</li>
+            </ol>
+        </div>
+        {% endfor %}
+
+        <!-- Completion Message -->
+        <div class="mt-12 text-center">
+            <h2 class="text-2xl font-bold text-green-600">🎉 Congratulations!</h2>
+            <p class="text-gray-700 mt-2">You've completed the <strong>Python for Beginners</strong> intro course. Continue learning by taking intermediate or advanced courses next!</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

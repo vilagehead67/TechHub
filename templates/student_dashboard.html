@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="student-dashboard">
+  <div class="dashboard-card">
+    <h2>👋 Welcome, {{ session.user_name }}!</h2>
+    <p class="subtitle">You’re logged in as a <span class="role">student</span>.</p>
+
+    <div class="dashboard-links">
+      <a href="/courses" class="dashboard-btn browse">
+        📚 Browse All Courses
+      </a>
+
+      <a href="{{ url_for('course_routes.my_courses') }}" class="dashboard-btn my-courses">
+        🎓 My Courses
+      </a>
+    </div>
+
+    <p class="vibe">✨ No stress. Just vibes and lectures.</p>
+  </div>
+</section>
+{% endblock %}
